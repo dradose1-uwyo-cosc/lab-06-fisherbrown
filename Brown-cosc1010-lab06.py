@@ -1,9 +1,9 @@
-# Your Name Here
+# Fisher Brown
 # UWYO COSC 1010
-# Submission Date
+# 15 Oct 24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 10
+# Sources, people worked with, help given to: Jayden Robison
 # your
 # comments
 # here
@@ -79,17 +79,34 @@ print(len(random_string)) # Print out the size for reference
     # You will  need to add the letter to the dictionary on first occurrence 
     # Then increment its corresponding count 
 
-
 #Load all the elements into a dictionary
 #Will need to first declare a dictionary 
+letters = {}
+for letter in random_string:
+    if letter not in letters:
+        letters[letter] = 1
+    else:
+        letters[letter] += 1
+#print(letters)
 
 # Output: each letter and its corresponding occurrence in alphabetical order
 
+for key in sorted(letters.keys()):
+    print(f"{key} occured {letters[key]} times" )
+
+
 print("*"*75)
 # Output which letter occurred the most 
-
-most_occurred = ""
-least_occurred = ""
+most = 'a'
+least = 'a'
+for key in sorted(letters.keys()):
+    if letters[key] > letters[most]:
+        most = key
+    if letters[key] < letters[least]:
+        least = key
+        
+most_occurred = most
+least_occurred = least
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
@@ -98,3 +115,6 @@ print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+for key in sorted(letters.keys()):
+    percent = letters[key]/2500*100
+    print(f'{key} is {percent:.1f}% of the entire string')
